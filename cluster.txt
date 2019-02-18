@@ -1,0 +1,31 @@
+#Kubernetes install
+
+vi /etc/yum.repos.d/kubernetes.repo
+
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=0
+repo_gpgcheck=0
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+
+#Install Kubeadm, kubectl and Docker
+yum install -y kubeadm kubectl docker gcc
+
+# start the service 
+systemctl enable docker && systemctl start docker 
+
+vi /etc/sysctl.d/k8s.conf
+
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+
+
+#Run following commands
+sysctl --system
+
+
+#now u run kubeadm join command 
+kubeadm join 172.31.19.39:6443 --token bps8f0.ws09oa6n2q21ti7v --discovery-token-ca-cert-hash sha256:be882cbe74c5b2fe972635dfa0da959abb2d5f3ed0382e9815c1b5cb0292f26d
