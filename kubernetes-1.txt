@@ -1,0 +1,49 @@
+create deployment :-
+
+syntax : - kubectl create deployment deploymentname --image=imagename
+
+kubectl create deployment apache --image=httpd
+kubectl create deployment tomcat --image=tomcat
+kubectl create deployment mysql --image=mysql
+kubectl create deployment raju --image=jenkins 
+
+Delete deployment :-
+
+syntax :- kubectl delete deployment deploymentname
+ 
+kubectl delete deployment raju 
+kubectl delete deployment apache
+kubectl delete deployment tomcat 
+kubectl delete deployment mysql
+
+list the pods
+syntax :-
+kubectl get pods 
+
+pod details 
+syntax :-
+kubectl describe pod podname 
+
+pod delete:-
+syntax :-
+kubectl delete pod podname 
+
+list the deployments :-
+syntax :-
+kubectl get deployments 
+
+deployment details :-
+syntax :-
+kubectl describe deployment deploymentname 
+
+scaling deployments:-
+syntax:-
+kubectl scale deployment/deploymentname --replicas=number of pods 
+Example :- kubectl scale deployment/mysql --replicas=4
+           kubectl scale deployment/tomcat --replicas=10
+           kubectl scale deployment/nexus --replicas=5
+
+
+
+ 
+
