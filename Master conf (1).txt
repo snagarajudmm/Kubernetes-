@@ -28,7 +28,7 @@ net.bridge.bridge-nf-call-iptables = 1
 sysctl --system
 
 
-sed -i "s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g" /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+# sed -i "s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g" /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 
 
 vi /etc/sysconfig/kubelet
